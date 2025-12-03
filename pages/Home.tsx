@@ -183,8 +183,7 @@ export const Home: React.FC = () => {
         
         {/* Carousel Container */}
         <div className="relative w-full">
-          {/* We use w-max to allow the flex container to grow as wide as its children */}
-          <div className="flex w-max animate-scroll">
+          <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
             {/* First Set of Testimonials */}
             <div className="flex gap-6 px-4">
               {TESTIMONIALS.map((t, i) => (
@@ -229,10 +228,8 @@ export const Home: React.FC = () => {
             100% { transform: translateX(-50%); }
           }
           .animate-scroll {
-            animation: scroll 60s linear infinite;
-          }
-          .animate-scroll:hover {
-            animation-play-state: paused;
+            animation: scroll 40s linear infinite;
+            will-change: transform;
           }
         `}</style>
       </section>

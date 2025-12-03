@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck, ShieldCheck, Clock, Settings, ChevronDown, ChevronUp, Star, Quote, HelpCircle } from 'lucide-react';
+import { ArrowRight, Truck, ShieldCheck, Clock, Settings, Star, Quote } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { ProductCard } from '../components/ProductCard';
 
@@ -16,55 +16,6 @@ const TESTIMONIALS = [
   { name: "Meera N., Mysore", text: "Authentic homemade taste. The Nuvvulu Chakodi is my favorite.", rating: 5 },
   { name: "Rohan D., Hyderabad", text: "Bulk ordered for a family function. Everyone asked where the chips were from!", rating: 5 },
 ];
-
-const FAQS = [
-  { question: "Do you deliver all over India?", answer: "Yes! We use India Post to ensure delivery to every corner of India, including remote villages and major cities." },
-  { question: "Are the snacks fresh?", answer: "Absolutely. We prepare our snacks in small batches daily using fresh oil. We do not use any preservatives or artificial chemicals." },
-  { question: "How can I customize my order?", answer: "We specialize in customization! You can choose specific weights on the website, or contact us on WhatsApp to adjust spice levels for bulk orders." },
-  { question: "What is the shelf life?", answer: "Since we don't use preservatives, we recommend consuming chips within 20 days and harder snacks like Murukku within 30 days." },
-  { question: "How do I pay?", answer: "Once you send your enquiry via WhatsApp, we will share a UPI payment link (GPay/PhonePe). Your order is confirmed after payment." },
-  { question: "Is there a minimum order value?", answer: "No, there is no minimum order value. However, shipping costs are more economical when you order in larger quantities (e.g., 1kg or more)." },
-  { question: "Do you accept returns?", answer: "Due to the perishable nature of food products, we do not accept returns. However, if the package is damaged during transit, please share a photo on WhatsApp, and we will resolve it." },
-];
-
-const FAQItem: React.FC<{ question: string; answer: string; index: number }> = ({ question, answer, index }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div 
-      className={`group border rounded-2xl overflow-hidden transition-all duration-300 ${
-        isOpen 
-          ? 'bg-white shadow-lg ring-1 ring-brand-orange border-brand-orange' 
-          : 'bg-white border-gray-100 shadow-sm hover:border-brand-orange/50 hover:shadow-md'
-      }`}
-    >
-      <button 
-        className="w-full px-6 py-5 flex justify-between items-center text-left focus:outline-none"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className="flex items-center gap-4">
-            <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${isOpen ? 'bg-brand-orange text-white' : 'bg-orange-100 text-brand-orange'}`}>
-                {index + 1}
-            </span>
-            <span className={`text-lg font-bold transition-colors ${isOpen ? 'text-brand-orange' : 'text-gray-900'}`}>
-              {question}
-            </span>
-        </div>
-        
-        <span className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-orange' : 'text-gray-400 group-hover:text-brand-orange'}`}>
-            <ChevronDown size={24} />
-        </span>
-      </button>
-      <div 
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
-      >
-        <div className="px-6 pb-6 pl-[4.5rem] text-gray-600 leading-relaxed border-t border-dashed border-gray-100 pt-4 mx-6 mt-2">
-          {answer}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export const Home: React.FC = () => {
   const featuredProducts = PRODUCTS.filter(p => p.popular).slice(0, 4);
@@ -232,31 +183,6 @@ export const Home: React.FC = () => {
             will-change: transform;
           }
         `}</style>
-      </section>
-
-      {/* FAQs */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center p-3 bg-orange-100 text-brand-orange rounded-full mb-4">
-              <HelpCircle size={32} />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
-            <p className="mt-3 text-gray-500 text-lg">Everything you need to know about our products and delivery.</p>
-          </div>
-          
-          <div className="space-y-4">
-            {FAQS.map((faq, index) => (
-              <FAQItem key={index} question={faq.question} answer={faq.answer} index={index} />
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <p className="text-gray-600">
-              Still have questions? <Link to="/contact" className="text-brand-orange font-bold hover:underline">Contact us</Link>
-            </p>
-          </div>
-        </div>
       </section>
     </div>
   );

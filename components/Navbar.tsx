@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ShoppingCart, Menu, X, Phone } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { CartContext } from '../App';
+import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const { cart, setIsCartOpen } = useContext(CartContext);
@@ -17,11 +18,11 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-            <div className="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
+          <Link to="/" className="flex-shrink-0 flex items-center gap-3 group">
+            <Logo className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-105" />
             <div>
               <h1 className="text-xl md:text-2xl font-bold text-brand-dark tracking-tight">A K Hot Chips</h1>
-              <p className="text-xs text-brand-orange uppercase tracking-wider">Authentic Crunch</p>
+              <p className="text-[10px] md:text-xs text-brand-orange uppercase tracking-wider font-semibold">Authentic Crunch</p>
             </div>
           </Link>
 
@@ -40,7 +41,7 @@ export const Navbar: React.FC = () => {
               href="https://wa.me/919502701115" 
               target="_blank" 
               rel="noreferrer"
-              className="hidden md:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+              className="hidden md:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-sm hover:shadow"
             >
               <Phone size={16} />
               <span>Enquire Now</span>
@@ -60,7 +61,7 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
-              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700">
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700 hover:text-brand-orange">
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
@@ -70,14 +71,14 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100">
+        <div className="md:hidden bg-white border-t border-gray-100 animate-fade-in">
           <div className="px-4 pt-2 pb-6 space-y-2">
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-orange hover:bg-orange-50 rounded-md">Home</Link>
             <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-orange hover:bg-orange-50 rounded-md">Shop Menu</Link>
             <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-orange hover:bg-orange-50 rounded-md">About Us</Link>
             <Link to="/shipping" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-orange hover:bg-orange-50 rounded-md">Shipping</Link>
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-orange hover:bg-orange-50 rounded-md">Contact</Link>
-            <a href="https://wa.me/919502701115" className="block w-full text-center mt-4 bg-green-500 text-white py-3 rounded-lg font-semibold">
+            <a href="https://wa.me/919502701115" className="block w-full text-center mt-4 bg-green-500 text-white py-3 rounded-lg font-semibold shadow">
               Enquire on WhatsApp
             </a>
           </div>

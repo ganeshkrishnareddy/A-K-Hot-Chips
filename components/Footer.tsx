@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Youtube } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,7 +9,10 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-1">
-            <h2 className="text-2xl font-bold mb-4">A K Hot Chips</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <Logo className="w-10 h-10" />
+              <h2 className="text-2xl font-bold">A K Hot Chips</h2>
+            </div>
             <p className="text-gray-400 text-sm">
               Authentic customized hot chips and South Indian snacks delivered fresh to your doorstep. No preservatives, just pure home-style taste.
             </p>
@@ -17,39 +21,39 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-brand-orange">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link to="/" className="hover:text-white">Home</Link></li>
-              <li><Link to="/shop" className="hover:text-white">Shop Menu</Link></li>
-              <li><Link to="/about" className="hover:text-white">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/shop" className="hover:text-white transition-colors">Shop Menu</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4 text-brand-orange">Support</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link to="/shipping" className="hover:text-white">Shipping Policy</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Track Order</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Returns & Refunds</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Bulk Custom Orders</Link></li>
+              <li><Link to="/shipping" className="hover:text-white transition-colors">Shipping Policy</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Track Order</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Returns & Refunds</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Bulk Custom Orders</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4 text-brand-orange">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/somasai_6399?igsh=MXVhNzE5c3gxZ3NpYw==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white" title="Instagram">
+              <a href="https://www.instagram.com/somasai_6399?igsh=MXVhNzE5c3gxZ3NpYw==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
                 <Instagram size={24} />
               </a>
-              <a href="https://www.facebook.com/share/17vszLM4mc/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white" title="Facebook">
+              <a href="https://www.facebook.com/share/17vszLM4mc/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Facebook">
                 <Facebook size={24} />
               </a>
-              <a href="https://www.youtube.com/@Streetfoodie6399" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white" title="YouTube">
+              <a href="https://www.youtube.com/@Streetfoodie6399" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="YouTube">
                 <Youtube size={24} />
               </a>
             </div>
             <div className="mt-6">
                <p className="text-sm text-gray-400 mb-2">Enquire via Phone</p>
-               <p className="text-lg font-bold">+91 9502701115</p>
+               <p className="text-lg font-bold hover:text-brand-orange transition-colors cursor-pointer">+91 9502701115</p>
             </div>
           </div>
         </div>

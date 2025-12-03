@@ -8,7 +8,7 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const { addToCart } = useContext(CartContext);
   
   // State for weight selection
-  const [weightOption, setWeightOption] = useState<'250gm' | '500gm' | '1kg' | 'custom'>('250gm');
+  const [weightOption, setWeightOption] = useState<'250g' | '500g' | '1kg' | 'custom'>('250g');
   const [customWeight, setCustomWeight] = useState<string>(''); // in KG
   const [quantity, setQuantity] = useState<number>(1); // For non-kg items
   const [calculatedPrice, setCalculatedPrice] = useState<number>(0);
@@ -19,10 +19,10 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   useEffect(() => {
     if (isKgItem) {
       switch (weightOption) {
-        case '250gm':
+        case '250g':
           setCalculatedPrice(product.price * 0.25);
           break;
-        case '500gm':
+        case '500g':
           setCalculatedPrice(product.price * 0.50);
           break;
         case '1kg':
@@ -50,7 +50,7 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         weightVal = parseFloat(customWeight);
       } else {
         weightLabel = weightOption;
-        weightVal = weightOption === '250gm' ? 0.25 : weightOption === '500gm' ? 0.5 : 1.0;
+        weightVal = weightOption === '250g' ? 0.25 : weightOption === '500g' ? 0.5 : 1.0;
       }
     } else {
       weightLabel = `${quantity} ${product.unit}(s)`;
@@ -108,7 +108,7 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
               <Scale size={14} /> Select Weight
             </p>
             <div className="grid grid-cols-4 gap-2">
-              {(['250gm', '500gm', '1kg'] as const).map((opt) => (
+              {(['250g', '500g', '1kg'] as const).map((opt) => (
                 <button
                   key={opt}
                   onClick={() => setWeightOption(opt)}

@@ -4,25 +4,33 @@ import { Truck, MapPin, CheckCircle, AlertCircle, Package } from 'lucide-react';
 export const Shipping: React.FC = () => {
   const [pincode, setPincode] = useState('');
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
 
   const checkPincode = (e: React.FormEvent) => {
     e.preventDefault();
     
+    const cleanPincode = pincode.trim();
+
     // Regex for Indian Pincode: 
     // ^[1-9] : First digit 1-9 (cannot be 0)
     // [0-9]{5}$ : Next 5 digits can be 0-9
     const pincodeRegex = /^[1-9][0-9]{5}$/;
     
     // Check for repetitive digits (e.g., 111111, 555555)
-    const isRepetitive = /^(\d)\1{5}$/.test(pincode);
+    const isRepetitive = /^(\d)\1{5}$/.test(cleanPincode);
     
     // Check for sequential digits (e.g., 123456, 654321)
-    const isSequential = "0123456789".includes(pincode) || "9876543210".includes(pincode);
+    const isSequential = "0123456789".includes(cleanPincode) || "9876543210".includes(cleanPincode);
 
-    if (pincodeRegex.test(pincode) && !isRepetitive && !isSequential) {
-      setStatus('success');
-    } else {
+    if (!pincodeRegex.test(cleanPincode)) {
       setStatus('error');
+      setMessage('Invalid Pincode. It must be 6 digits and start with 1-9.');
+    } else if (isRepetitive || isSequential) {
+      setStatus('error');
+      setMessage('This appears to be a test pincode. Please enter a valid delivery pincode.');
+    } else {
+      setStatus('success');
+      setMessage(`Yes! India Post service is available for ${cleanPincode}.`);
     }
   };
 
@@ -48,6 +56,7 @@ export const Shipping: React.FC = () => {
                 onChange={(e) => {
                   setPincode(e.target.value.replace(/\D/g, '')); // Only allow digits
                   setStatus('idle');
+                  setMessage('');
                 }}
                 placeholder="Enter your Pincode"
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none"
@@ -64,13 +73,13 @@ export const Shipping: React.FC = () => {
           {status === 'success' && (
             <div className="mt-4 p-3 bg-green-50 text-green-700 rounded-lg flex items-center gap-2 animate-fade-in">
               <CheckCircle size={18} />
-              Yes! India Post service is available for {pincode}.
+              {message}
             </div>
           )}
           {status === 'error' && (
             <div className="mt-4 p-3 bg-red-50 text-red-700 rounded-lg flex items-center gap-2 animate-fade-in">
               <AlertCircle size={18} />
-              Please enter a valid Indian Pincode (e.g., 500001).
+              {message}
             </div>
           )}
         </div>

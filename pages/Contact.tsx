@@ -18,6 +18,19 @@ export const Contact: React.FC = () => {
           <div className="bg-brand-light p-8 rounded-2xl">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
             <div className="space-y-6">
+              
+              <div className="flex items-start gap-4">
+                <div className="bg-white p-3 rounded-full shadow-sm text-brand-orange">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Shop Address</p>
+                  <p className="text-lg font-bold text-gray-900">Hussain Katta, Mangalagiri</p>
+                  <p className="text-gray-700">Opposite Punjab National Bank</p>
+                  <p className="text-gray-700">Andhra Pradesh - 522503</p>
+                </div>
+              </div>
+
               <div className="flex items-start gap-4">
                 <div className="bg-white p-3 rounded-full shadow-sm text-brand-orange">
                   <Phone size={24} />
@@ -45,7 +58,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">Email</p>
-                  <p className="text-lg font-bold text-gray-900">support@akhotchips.in</p>
+                  <p className="text-lg font-bold text-gray-900 break-all">somasaikumar50@gmail.com</p>
                 </div>
               </div>
             </div>

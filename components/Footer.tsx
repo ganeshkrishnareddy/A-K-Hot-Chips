@@ -59,7 +59,10 @@ export const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} A K Hot Chips. All rights reserved.</p>
+          <p className="mb-2">&copy; {new Date().getFullYear()} A K Hot Chips. All rights reserved.</p>
+          <p>
+            Created and Deployed by <a href="https://progvision.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors font-medium text-brand-orange">ProgVision</a>
+          </p>
         </div>
       </div>
     </footer>

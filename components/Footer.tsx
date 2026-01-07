@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
               Authentic customized hot chips and South Indian snacks delivered fresh to your doorstep. No preservatives, just pure home-style taste.
             </p>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4 text-brand-orange">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
@@ -53,16 +53,16 @@ export const Footer: React.FC = () => {
               </a>
             </div>
             <div className="mt-6">
-               <p className="text-sm text-gray-400 mb-2">Enquire via Phone</p>
-               <p className="text-lg font-bold hover:text-brand-orange transition-colors cursor-pointer">+91 9502701115</p>
+              <p className="text-sm text-gray-400 mb-2">Enquire via Phone</p>
+              <p className="text-lg font-bold hover:text-brand-orange transition-colors cursor-pointer">+91 9502701115</p>
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
           <p className="mb-2">&copy; {new Date().getFullYear()} A K Hot Chips. All rights reserved.</p>
           <p>
-            Created and Deployed by <a href="https://progvision.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors font-medium text-brand-orange">ProgVision</a>
+            Created and Deployed by <a href="https://progvision.in/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors font-medium text-brand-orange">ProgVision</a>
           </p>
         </div>
       </div>

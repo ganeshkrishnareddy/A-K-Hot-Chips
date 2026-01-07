@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   price: number;
   unit: string; // e.g., 'kg', 'packet', 'box'
-  category: 'Snacks' | 'Chips' | 'Sweets' | 'Special';
+  category: 'Snacks' | 'Chips' | 'Sweets' | 'Special' | 'Partner';
   description: string;
   image?: string; // Made optional as we are removing them from UI
   popular?: boolean;

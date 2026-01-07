@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Truck, ShieldCheck, Clock, Settings, Star, Quote } from 'lucide-react';
 import { PRODUCTS } from '../constants';
 import { ProductCard } from '../components/ProductCard';
+import PartnerSection from '../components/PartnerSection';
 
 const TESTIMONIALS = [
   { name: "Priya R., Bangalore", text: "A K Hot Chips really delivers on the custom spice promise. The chili chips were perfect!", rating: 5 },
@@ -111,13 +112,13 @@ export const Home: React.FC = () => {
             View All <ArrowRight size={16} className="ml-1" />
           </Link>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-        
+
         <div className="mt-8 text-center sm:hidden">
           <Link to="/shop" className="text-brand-orange font-semibold hover:underline">
             View All Products &rarr;
@@ -125,13 +126,16 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Partner Products - 360 Clean */}
+      <PartnerSection />
+
       {/* Sliding Testimonials */}
       <section className="bg-brand-orange py-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-           <h2 className="text-3xl font-bold text-white mb-2">Customer Love</h2>
-           <p className="text-orange-100">Join 1000+ happy snackers across India</p>
+          <h2 className="text-3xl font-bold text-white mb-2">Customer Love</h2>
+          <p className="text-orange-100">Join 1000+ happy snackers across India</p>
         </div>
-        
+
         {/* Carousel Container */}
         <div className="relative w-full">
           <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
@@ -152,7 +156,7 @@ export const Home: React.FC = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Duplicate Set for Seamless Loop */}
             <div className="flex gap-6 px-4">
               {TESTIMONIALS.map((t, i) => (
@@ -163,7 +167,7 @@ export const Home: React.FC = () => {
                     <div>
                       <p className="font-bold text-gray-900 text-sm">{t.name}</p>
                       <div className="flex text-yellow-400 text-xs mt-1">
-                         {[...Array(t.rating)].map((_, r) => <Star key={r} size={12} fill="currentColor" />)}
+                        {[...Array(t.rating)].map((_, r) => <Star key={r} size={12} fill="currentColor" />)}
                       </div>
                     </div>
                   </div>
@@ -172,7 +176,7 @@ export const Home: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <style>{`
           @keyframes scroll {
             0% { transform: translateX(0); }

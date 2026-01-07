@@ -12,9 +12,14 @@ const IMAGES = {
   peanuts: 'https://images.unsplash.com/photo-1606132415170-b1d5bdc6ce56?auto=format&fit=crop&w=800&q=80', // Represents Palli Pakodi, Masala Peanuts
   peas: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80', // Fried peas / South Indian Mix
   laddu: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&w=800&q=80', // Sweets
+  dryFruitLaddu: 'https://images.unsplash.com/photo-1605197787394-6c1a7b87c0c2?auto=format&fit=crop&w=800&q=80', // Dry fruit laddu
+  arisalu: 'https://images.unsplash.com/photo-1597714026720-8f74c62310ba?auto=format&fit=crop&w=800&q=80', // Rice snacks
   cookies: 'https://images.unsplash.com/photo-1605256406930-6b64b1899148?auto=format&fit=crop&w=800&q=80', // Biscuits/Gulabhi
   sweetShells: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcf8?auto=format&fit=crop&w=800&q=80', // Sweet snacks
   nippattu: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80', // Flat fried snacks
+  floorCleaner: '/partners/360clean-floor-cleaner.png',
+  dishWash: '/partners/360clean-dish-wash.png',
+  detergent: '/partners/360clean-detergent.png',
 };
 
 export const PRODUCTS: Product[] = [
@@ -36,6 +41,7 @@ export const PRODUCTS: Product[] = [
   { id: '13', name: 'Palli Pakodi', price: 240, unit: 'kg', category: 'Snacks', description: 'Crunchy peanut fritters coated in chickpea flour.', image: IMAGES.peanuts },
   { id: '14', name: 'Batani', price: 200, unit: 'kg', category: 'Snacks', description: 'Fried green peas salted and spiced.', image: IMAGES.peas },
   { id: '15', name: 'Chitti Chakkaralu', price: 200, unit: 'kg', category: 'Snacks', description: 'Tiny spiral murukku, easy to munch on.', image: IMAGES.murukku },
+  { id: '24', name: 'Arisalu', price: 250, unit: 'kg', category: 'Snacks', description: 'Traditional rice flour snack, crispy and delicious. Also available at ₹10 per piece.', image: IMAGES.arisalu, popular: true },
 
   // Packets/Small Items
   { id: '16', name: 'Bundhi Chakka', price: 50, unit: 'packet', category: 'Special', description: 'Crispy disks with boondi mix.', image: IMAGES.nippattu },
@@ -48,4 +54,25 @@ export const PRODUCTS: Product[] = [
   // Sweets
   { id: '22', name: 'Sunundalu', price: 70, unit: 'box', category: 'Sweets', description: 'Urad dal and jaggery laddu (Box).', image: IMAGES.laddu },
   { id: '23', name: 'Pappu Undalu', price: 50, unit: 'packet', category: 'Sweets', description: 'Sweet lentil balls.', image: IMAGES.laddu },
+  { id: '25', name: 'Dry Fruit Laddu', price: 650, unit: 'kg', category: 'Sweets', description: 'Premium laddu made with almonds, cashews, dates, and dry fruits. Pure ghee and jaggery.', image: IMAGES.dryFruitLaddu, popular: true },
 ];
+
+// 360 Clean Partner Products (available at A K Hot Chips)
+// 60ml Sachet - ₹10 each
+export const PARTNER_PRODUCTS: Product[] = [
+  { id: 'p1', name: '360 Clean Floor Cleaner (60ml)', price: 10, unit: 'sachet', category: 'Partner', description: 'Exotic Floral floor cleaner. Kills 99.9% bacteria. Bio Cristales formula.', image: IMAGES.floorCleaner, popular: true },
+  { id: 'p2', name: '360 Clean Dish Wash (60ml)', price: 10, unit: 'sachet', category: 'Partner', description: 'Strong Lemon Formula dish wash. Kills 99.9% bacteria. Bio Cristales.', image: IMAGES.dishWash, popular: true },
+  { id: 'p3', name: '360 Clean Liquid Detergent (60ml)', price: 10, unit: 'sachet', category: 'Partner', description: 'Pro Clean Formula with Advanced Colour Protection. Bio Cristales technology.', image: IMAGES.detergent, popular: true },
+];
+
+// 360 Clean Partner Info
+export const PARTNER_360CLEAN = {
+  name: '360 Clean',
+  tagline: 'Golden Standards of Cleaning',
+  website: 'https://360clean.co.in/',
+  instagram: 'https://www.instagram.com/v_360clean/',
+  youtube: 'https://www.youtube.com/@360clean',
+  phone: '+91 91009 40494',
+  whatsapp: '919100940494',
+  description: 'Premium cleaning products by 360 Clean. Bio Cristales technology that kills 99.9% bacteria. Available at A K Hot Chips.'
+};
